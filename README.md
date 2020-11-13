@@ -1,5 +1,5 @@
 <p align="center">
-    <img src="logo.png" width="100%" alt="Casts Logo"/><br><br>
+    <img src="logo.png" width="80%" alt="Casts Logo"/><br><br>
     <a href="https://github.com/tyeporter/Casts/blob/main/LICENSE.md">
         <img src="https://img.shields.io/github/license/tyeporter/casts">
     </a>
@@ -25,10 +25,10 @@ Listen to your favorite podcast anywhere in the world.
 
 
 ## Contributors
-This theme is maintained by the following people:
+This project is maintained by the following people:
 <p>
     <a href="https://github.com/tyeporter">
-        <img src="https://avatars1.githubusercontent.com/u/16263420?s=460&v=4" width="100" height="100" style="border-radius: 50px;" />
+        <img src="https://avatars1.githubusercontent.com/u/16263420?s=460&v=4" width="100" height="100" />
     </a>
 </p>
 
