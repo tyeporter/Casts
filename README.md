@@ -1,4 +1,4 @@
-<h1 align="center"><img src="logo.png" width="300" alt="Casts Logo"/></h1>
+<h1 align="center"><img src="logo.png" width="100%" alt="Casts Logo"/></h1>
 
 ## Discover
 Discover podcasts using the category tabs at the top of the page. Casts currently supports 5 common categories: "Science", "Politics", "Religion", "Sports" and "Love." More to come soon...
