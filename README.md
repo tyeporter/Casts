@@ -23,9 +23,11 @@ Listen to your favorite podcast anywhere in the world.
 
 ## Contributors
 This theme is maintained by the following people:
-<a href="https://github.com/tyeporter">
-    <img src="https://avatars1.githubusercontent.com/u/16263420?s=460&v=4" width="100" height="100" style="border-radius: 50px;" />
-</a>
+<p>
+    <a href="https://github.com/tyeporter">
+        <img src="https://avatars1.githubusercontent.com/u/16263420?s=460&v=4" width="100" height="100" style="border-radius: 50px;" />
+    </a>
+</p>
 
 ## License
 [MIT License](./LICENSE.md)
