@@ -1,27 +1,31 @@
 <p align="center">
-    <img src="logo.png" width="80%" alt="Casts Logo"/><br><br>
+    <img src="assets/logo.png" width="80%" alt="Casts Logo"/><br><br>
     <a href="https://github.com/tyeporter/Casts/blob/main/LICENSE.md">
         <img src="https://img.shields.io/github/license/tyeporter/casts">
     </a>
 </p>
 
 ## Discover
-Discover podcasts using the category tabs at the top of the page. Casts currently supports 5 common categories: "Science", "Politics", "Religion", "Sports" and "Love." More to come soon...
+Discover podcasts using the category tabs at the top of the page. Casts currently allows you to discover podcasts through 6 categories: "Science", "Health", "Politics", "Spirituality", "Sports" and "Relationships." More to come soon...
 <p align="center">
-    <img src="1.png" alt="Discover Podcasts"/>
+    <img src="assets/1.png" alt="Discover Podcasts"/>
 </p>
 
-## Search
+## Search (Coming soon..)
 Search your favorites podcasts. Just curious? Use the search feature to discover new content and publishers.
 <p align="center">
-    <img src="2.png" alt="Discover Podcasts"/>
+    <img src="assets/2.png" alt="Discover Podcasts"/>
 </p>
 
 ## Listen
 Listen to your favorite podcast anywhere in the world.
 <p align="center">
-    <img src="3.png" alt="Discover Podcasts"/>
+    <img src="assets/3.png" alt="Discover Podcasts"/>
 </p>
+
+## TODO
+- Build out search functionality
+- Make user interface responsive
 
 
 ## Contributors
