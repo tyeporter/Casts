@@ -1,0 +1,58 @@
+@charset "utf-8";
+
+$white: #FFFFFF;
+$primary-color: rgb(32, 156, 238);
+$primary-dark-color: #222222;
+$secondary-dark-color: #111111;
+
+$subtitle-negative-margin: 0;
+$box-background-color: $secondary-dark-color;
+$input-background-color: $secondary-dark-color;
+$input-color: $white;
+$footer-background-color: $secondary-dark-color;
+
+@import "./sass/bulma.sass";
+
+*:not(i) { font-family: 'Source Sans Pro', sans-serif !important; }
+html, body { background-color: $primary-dark-color !important; }
+a:not(.button):not(.title) { color: $primary-color !important; }
+
+.is-bold-italic { font-weight: bold !important; font-style: italic !important; }
+.is-primary-dark { background-color: $primary-dark-color !important; }
+.is-secondary-dark { background-color: $secondary-dark-color !important; }
+.is-vertical-center { margin-top: auto !important; margin-bottom: auto !important; }
+.is-inline-block { display: inline-block !important; }
+
+
+.margin-0 { margin-bottom: 0 !important; }
+.margin-top-0 { margin-top: 0 !important; }
+.margin-bottom-0 { margin-bottom: 0 !important; }
+.margin-bottom-5 { margin-bottom: 5px !important; }
+.margin-bottom-8 { margin-bottom: 8px !important; }
+.margin-bottom-15 { margin-bottom: 15px !important; }
+.margin-right-15 { margin-right: 15px !important; }
+.padding-0 { padding: 0 !important; }
+.padding-top-0 { padding-top: 0 !important; }
+.padding-top-10 { padding-top: 10px !important; }
+.padding-bottom-0 { padding-bottom: 0 !important; }
+.padding-bottom-10 { padding-bottom: 0 !important; }
+
+a.on-hover-primary-color:hover { color: $primary-color !important; }
+a.on-hover-no-underline:hover  { text-decoration: none !important; }
+
+.display-block { display: block; }
+.border-radius-5 { border-radius: 5px !important; }
+.select select.no-border, .textarea.no-border, .input.no-border { border: none; }
+
+.p-fixed-height-75 {
+    height: 75px !important;
+	text-overflow: ellipsis !important;
+	overflow: hidden !important;
+	position: relative;
+}
+.fixed-height-42 { height: 42px !important; }
+.dynamic-width-100 { width: 100% !important; }
+.dynamic-opacity-80 { opacity: 0.8 !important; }
+.dynamic-height-80 { height: 80% !important; }
+
+.img-x178 { width: 178px !important; height: 178px !important; }

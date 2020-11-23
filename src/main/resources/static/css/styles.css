@@ -1,0 +1,76 @@
+/* html, body {
+	background-color: #222222 !important;
+}
+
+h1, h2, h3, h4, h5, h6, p, a.button, a.title, span.subtitle, span.tag { font-family: 'Source Sans Pro', sans-serif !important;}
+section.title-section {
+	padding-bottom: 0 !important;
+}
+h2.page-heading { 
+	font-weight: bold !important; 
+	font-style: italic !important;
+}
+span.tag.is-transparent { background-color: #111111 !important; }
+p.title-section-subtitle { margin-bottom: 5px !important;}
+.box { 
+	max-height: 198px !important;
+	background-color: #111111; 
+} */
+
+/* .no-padding { padding: 0 !important; }
+.is-custom-black { background-color: #111111 !important; }
+.is-custom-dark { background-color: #222222 !important; } */
+
+/* a.box-content-title:hover, .subtitle > a, .subtitle > p > a {
+	color: rgb(32, 156, 238) !important;
+} */
+
+/* div.content > a.title { display: inline-block !important; }
+div.content > a.title, div.content > div.tags, h1.detail-title, p.detail-subtitle, p.subtitle.is-6, p.player-subtitle, div.is-grouped.is-grouped-multiline { margin-bottom: 8px !important; }
+p.detail-subtitle, p.player-subtitle { margin-top: 0 !important; }
+.tag { margin-bottom: 0 !important; } */
+
+/* figure.image > img {
+	width: 178px !important;
+	height: 178px !important;
+	border-radius: 5px !important;
+} */
+
+/* p.description-original {
+	height: 75px !important;
+	text-overflow: ellipsis !important;
+  	white-space: nowrap !important;
+	overflow: hidden !important;
+	position: relative;
+	margin-bottom: 0 !important;
+} 
+*/
+
+/* article.audio-section { 
+	width: 100% !important;
+	margin: 0 !important;
+}
+article.audio-section > audio {
+	display: block;
+	opacity: 0.8 !important;
+	width: 100% !important;
+	height: 42px !important;
+} */
+
+/* a.tag:hover, a.tag > i:hover  { text-decoration: none !important; }
+a.tag > img.apple-pod {
+	height: 80%;
+} */
+
+/* div.media-left.is-vertical-center {
+	margin-top: auto !important;
+	margin-bottom: auto !important;;
+} */
+
+div.control > input[type="text"]::placeholder { 
+	color: #c7c7c7 !important;
+}
+
+div.control > input[type="text"], div.control > input[type="text"]:hover {
+	border: none !important;
+}

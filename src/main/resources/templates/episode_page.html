@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" type="text/css" href="css/dist/myStyles.css">
+        <script src="https://use.fontawesome.com/978f43236b.js"></script>
+        <link rel="preconnect" href="https://fonts.gstatic.com"> 
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+        <title>Casts | Today</title>
+    </head>
+    <body>
+        <!-- HEADER CONTENT -->
+        <header>
+            <section class="hero is-info is-bold">
+                <div class="hero-body has-text-centered">
+                    <div class="container">
+                        <h1 class="title margin-bottom-15">
+                            Casts
+                        </h1>
+                        <h2 class="subtitle is-bold-italic">
+                            Discover, search and listen to your favorite podcasts.
+                        </h2>
+
+                        <div class="container is-centered">
+                            <div class="buttons has-addons is-centered">
+                                <th:block th:each="category : ${categories}">
+                                    <a th:href="@{'/' + ${category.getStringValue()}}" 
+                                        class="button is-rounded" 
+                                        th:text="${category.getStringValue()}"
+                                        th:classappend="${selectedCategory == category ? 'is-info' : 'is-white'}"></a>
+                                </th:block>
+                                <a th:href="@{'/Search'}" class="button is-white is-rounded">
+                                    <span class="icon is-small">
+                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <main>
+            <!-- Title Section -->
+            <section class="section title-section padding-bottom-0">
+                <div class="container">
+                    <div class="columns is-mobile">
+                        <div class="column is-8 is-offset-2">
+                            <h1 class="title has-text-light margin-bottom-8" th:text="${episodeTitle}"></h1>
+                            <p class="subtitle is-5 has-text-light margin-bottom-5 margin-top-0" th:text="${podcastTitle}"></p>
+                            <div class="tags are-small margin-bottom-8">
+                                <span class="tag has-text-grey is-medium padding-0 margin-bottom-0 is-primary-dark" th:text="${'Published on ' + episode.getPublishedDate()}"></span>
+                                <span class="tag is-dark margin-bottom-0" th:text="${episode.getAudioLength()}"></span>
+                                <span class="tag is-danger margin-bottom-0" th:if="${episode.getExplicitContent()}">Explicit Content</span>
+                                <th:block th:each="genre : ${episode.getGenres()}">
+                                    <span class="tag is-info margin-bottom-0" th:text="${genre}"></span> 
+                                </th:block>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Content Section -->
+            <section class="section padding-top-10">
+                <div class="container">
+                    <div class="columns is-mobile">
+                        <div class="column is-8 is-offset-2">
+                            <div class="box">
+                                <article class="dynamic-width-100 margin-0">
+                                    <audio controls class="display-block dynamic-opacity-80 dynamic-width-100 fixed-height-42 margin-bottom-15">
+                                        <source th:src="${episode.getAudio()}" type="audio/mpeg">>
+                                    </audio>
+
+                                    <div class="tags are-small margin-bottom-5">
+                                        <a th:if="${episode.getItunesId() != null}" class="tag margin-bottom-0" th:href="${'https://podcasts.apple.com/us/podcast/id' + episode.getItunesId()}" target="_blank">
+                                            <img class="apple-pod dynamic-height-80" src="img/apple_pod_badge.svg" alt="Listen on Apple Podcasts">
+                                        </a>
+                                        <a class="tag is-dark margin-bottom-0 on-hover-no-underline" th:href="${'https://twitter.com/share?url=https://localhost:8080/ep?id=' + episode.getId() + '&text=' + episode.getTitleOriginal()}" target="_blank">
+                                            <i class="fa fa-twitter has-text-grey-light" aria-hidden="true"></i>
+                                        </a>
+                                        <a class="tag is-dark margin-bottom-0 on-hover-no-underline" th:href="${'https://www.linkedin.com/shareArticle?url=https://localhost:8080/ep?id=' + episode.getId() + '&title=' + episode.getTitleOriginal()}" target="_blank">
+                                            <i class="fa fa-linkedin has-text-grey-light" aria-hidden="true"></i>
+                                        </a>
+                                        <a class="tag is-dark margin-bottom-0 on-hover-no-underline" th:href="${'https://www.facebook.com/sharer/sharer.php?u=https://localhost:8080/ep?id=' + episode.getId()}" target="_blank">
+                                            <i class="fa fa-facebook has-text-grey-light" aria-hidden="true"></i>
+                                        </a>
+                                        <a class="tag is-dark margin-bottom-0 on-hover-no-underline" th:href="${'mailto:?subject=' + episode.getTitleOriginal() + '&body=https://localhost:8080/ep?id=' + episode.getId()}" target="_blank">
+                                            <i class="fa fa-envelope has-text-grey-light" aria-hidden="true"></i>
+                                        </a>
+                                    </div>
+                                </article>
+                            </div>
+
+                            <!-- <span class="subtitle is-5 has-text-light description" th:utext="${episodeDescription}"></span> -->
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>

@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+        <link rel="stylesheet" type="text/css" href="css/dist/myStyles.css">
+        <script src="https://use.fontawesome.com/978f43236b.js"></script>
+        <link rel="preconnect" href="https://fonts.gstatic.com"> 
+        <link href="https://fonts.googleapis.com/css2?family=Source+Sans+Pro:ital,wght@0,400;0,700;1,400;1,700&display=swap" rel="stylesheet">
+        <title>Casts | Today</title>
+    </head>
+    <body>
+        <!-- HEADER CONTENT -->
+        <header>
+            <section class="hero is-info is-bold">
+                <div class="hero-body has-text-centered">
+                    <div class="container">
+                        <h1 class="title margin-bottom-15">
+                            Casts
+                        </h1>
+                        <h2 class="subtitle is-bold-italic">
+                            Discover, search and listen to your favorite podcasts.
+                        </h2>
+
+                        <div class="container is-centered">
+                            <div class="buttons has-addons is-centered">
+                                <th:block th:each="category : ${categories}">
+                                    <a th:href="@{'/' + ${category.getStringValue()}}" 
+                                        class="button is-rounded is-white" 
+                                        th:text="${category.getStringValue()}"></a>
+                                </th:block>
+                                <a th:href="@{'/Search'}" class="button is-white is-info is-rounded">
+                                    <span class="icon is-small">
+                                        <i class="fa fa-search" aria-hidden="true"></i>
+                                    </span>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </header>
+
+        <!-- MAIN CONTENT -->
+        <main>
+            <!-- Title Section -->
+            <section class="section title-section padding-bottom-0">
+                <div class="container">
+                    <div class="columns is-mobile">
+                        <div class="column is-8 is-offset-2">
+                            <h1 class="title has-text-light margin-bottom-8">Search</h1>
+                            <p class="subtitle is-5 has-text-light margin-bottom-15 margin-top-0">Search all podcasts and episodes on this site by title or description.</p>
+                            <form th:action="@{/search}" th:object="${search}" method="post">
+                                <div class="field is-grouped">
+                                    <div class="field has-addons margin-right-15">
+                                        <div class="control">
+                                            <input class="input no-border" type="text" placeholder="Search" th:field="*{query}">
+                                        </div>
+                                        <div class="control">
+                                            <button class="button is-black" type="submit">
+                                                <i class="fa fa-search" aria-hidden="true"></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                    <div class="control">
+                                        <div class="select">
+                                            <select class="no-border" th:field="*{type}">
+                                                <option th:value="${'podcast'}">Podcast</option>
+                                                <option th:value="${'episode'}">Episode</option>
+                                            </select>
+                                        </div>
+                                    </div>
+                                </div>
+                            </form>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <!-- Content Section -->
+            <section class="section">
+                <div class="container">
+                    <div class="columns is-mobile">
+                        <div class="column is-8 is-offset-2">
+                            
+                        </div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </body>
+</html>
