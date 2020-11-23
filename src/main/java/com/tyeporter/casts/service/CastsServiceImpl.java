@@ -16,14 +16,12 @@ import org.springframework.web.client.RestTemplate;
 @Service
 public class CastsServiceImpl implements CastsService {
 
-    @Value("${api_key}")
-    private String apiKey;
     HttpHeaders headers;
     HttpEntity<String> entity;
 
     public CastsServiceImpl() {
         this.headers = new HttpHeaders();
-        headers.set("X-ListenAPI-Key", apiKey);
+        headers.set("X-ListenAPI-Key", System.getenv("API_KEY"));
         this.entity = new HttpEntity<>(headers);
     }
 
