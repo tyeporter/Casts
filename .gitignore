@@ -34,3 +34,7 @@ build/
 
 ### MAC ###
 .DS_Store
+
+## SASS ##
+*.scss
+/src/main/resources/static/css/sass
