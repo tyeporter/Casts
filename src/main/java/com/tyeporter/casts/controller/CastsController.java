@@ -22,11 +22,6 @@ import org.springframework.web.bind.annotation.RequestParam;
 @RequestMapping("")
 public class CastsController {
 
-	// =========================================================
-    // Autowired Properties
-    // =========================================================
-
-	@Autowired
 	CastsServiceImpl service;
 
 	// =========================================================
@@ -34,7 +29,6 @@ public class CastsController {
     // =========================================================
 
 	private Category category;
-	private int categoryId;
 	private List<Episode> episodes;
 	private Episode currentEpisode;
 	private HashMap<String, Episode> pageResults = new HashMap<>();
@@ -44,20 +38,28 @@ public class CastsController {
     // Enums
     // =========================================================
 
-	enum Category {
-		SCIENCE("Science"),
-		HEALTH("Health"),
-		POLITICS("Politics"),
-		SPIRITUALITY("Spirituality"),
-		SPORTS("Sports"),
-		RELATIONSHIPS("Relationships");
+	public enum Category {
+		SCIENCE("Science", 107),
+		HEALTH("Health", 88),
+		POLITICS("Politics", 216),
+		SPIRITUALITY("Spirituality", 70),
+		SPORTS("Sports", 77),
+		RELATIONSHIPS("Relationships", 245);
 
 		private String stringValue;
+		private int id;
 
-		Category(String stringValue) { this.stringValue = stringValue; }
+		Category(String stringValue, int id) {
+			this.stringValue = stringValue;
+			this.id = id;
+		}
 
 		public String getStringValue() {
 			return stringValue;
+		}
+
+		public int getId() {
+			return id;
 		}
 
 		public String getCategoryMessage() {
@@ -79,6 +81,11 @@ public class CastsController {
 		}
 	}
 
+	@Autowired
+	public CastsController(CastsServiceImpl castsService) {
+		this.service = castsService;
+	}
+
 	// =========================================================
     // GET Mappings
     // =========================================================
@@ -86,7 +93,6 @@ public class CastsController {
 	@GetMapping({"/", "", "/science", "/Science"})
 	public String getHome(Model model) {
 		this.category = Category.SCIENCE;
-		this.categoryId = 107;
 		this.fetchEpisodes();
 		this.setupViewModelForCategoryPage(model);
 		return Page.CATEGORY_PAGE.getFileName();
@@ -95,7 +101,6 @@ public class CastsController {
 	@GetMapping({"/health", "/Health"})
 	public String getNutrition(Model model) {
 		this.category = Category.HEALTH;
-		this.categoryId = 88;
 		this.fetchEpisodes();
 		this.setupViewModelForCategoryPage(model);
 		return Page.CATEGORY_PAGE.getFileName();
@@ -104,7 +109,6 @@ public class CastsController {
 	@GetMapping({"/politics", "/Politics"})
 	public String getPolitics(Model model) {
 		this.category = Category.POLITICS;
-		this.categoryId = 216;
 		this.fetchEpisodes();
 		this.setupViewModelForCategoryPage(model);
 		return Page.CATEGORY_PAGE.getFileName();
@@ -113,7 +117,6 @@ public class CastsController {
 	@GetMapping({"/spirituality", "/Spirituality"})
 	public String getReligion(Model model) {
 		this.category = Category.SPIRITUALITY;
-		this.categoryId = 70;
 		this.fetchEpisodes();
 		this.setupViewModelForCategoryPage(model);
 		return Page.CATEGORY_PAGE.getFileName();
@@ -122,7 +125,6 @@ public class CastsController {
 	@GetMapping({"/sports", "/Sports"})
 	public String getSports(Model model) {
 		this.category = Category.SPORTS;
-		this.categoryId = 77;
 		this.fetchEpisodes();
 		this.setupViewModelForCategoryPage(model);
 		return Page.CATEGORY_PAGE.getFileName();
@@ -131,7 +133,6 @@ public class CastsController {
 	@GetMapping({"/relationships", "/Relationships"})
 	public String getLove(Model model) {
 		this.category = Category.RELATIONSHIPS;
-		this.categoryId = 245;
 		this.fetchEpisodes();
 		this.setupViewModelForCategoryPage(model);
 		return Page.CATEGORY_PAGE.getFileName();
@@ -183,7 +184,7 @@ public class CastsController {
 	// =========================================================
 	
 	private void fetchEpisodes() {
-		this.episodes = service.getEpisodes(this.category.getStringValue(), this.categoryId).getEpisodes();
+		this.episodes = service.getEpisodes(this.category.getStringValue(), this.category.getId()).getEpisodes();
 		if (this.pageResults.size() > 0) { this.pageResults.clear(); }
 		for (Episode episode : episodes) { pageResults.put(episode.getId(), episode); }
 	}
