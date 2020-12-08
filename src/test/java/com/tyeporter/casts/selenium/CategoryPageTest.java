@@ -1,10 +1,13 @@
 package com.tyeporter.casts.selenium;
 
+import io.github.bonigarcia.wdm.WebDriverManager;
 import com.tyeporter.casts.selenium.pom.CategoryPageModel;
 import com.tyeporter.casts.selenium.util.Browser;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.openqa.selenium.WebDriver;
+import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.firefox.FirefoxDriver;
 import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.context.SpringBootTest.WebEnvironment;
@@ -30,12 +33,19 @@ public class CategoryPageTest {
 
     @BeforeEach
     public void setup() {
-        this.browser = Browser.FIREFOX;
+        this.browser = Browser.CHROME;
         if (browser.equals(Browser.FIREFOX)) {
             System.setProperty("webdriver.gecko.driver", "/Users/tyeporter/selenium/geckodriver");
             driver = new FirefoxDriver();
             driver.get("http://localhost:" + this.port + "/science");
             driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+        } else if (browser.equals(Browser.CHROME)) {
+            WebDriverManager.chromedriver().setup();
+            ChromeOptions options = new ChromeOptions();
+            options.addArguments("--no-sandbox");
+            options.addArguments("--disable-dev-shm-usage");
+            options.addArguments("--headless");
+            driver = new ChromeDriver(options);
         }
 
         this.categoryPage = new CategoryPageModel(this.driver);
