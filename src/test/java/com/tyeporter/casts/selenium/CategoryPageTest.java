@@ -33,12 +33,12 @@ public class CategoryPageTest {
 
     @BeforeEach
     public void setup() {
-        this.browser = Browser.CHROME;
+        this.browser = Browser.FIREFOX;
         if (browser.equals(Browser.FIREFOX)) {
             System.setProperty("webdriver.gecko.driver", "/Users/tyeporter/selenium/geckodriver");
             driver = new FirefoxDriver();
             driver.get("http://localhost:" + this.port + "/science");
-            driver.manage().timeouts().implicitlyWait(5, TimeUnit.SECONDS);
+            driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         } else if (browser.equals(Browser.CHROME)) {
             WebDriverManager.chromedriver().setup();
             ChromeOptions options = new ChromeOptions();
@@ -46,6 +46,7 @@ public class CategoryPageTest {
             options.addArguments("--disable-dev-shm-usage");
             options.addArguments("--headless");
             driver = new ChromeDriver(options);
+            driver.manage().timeouts().implicitlyWait(15, TimeUnit.SECONDS);
         }
 
         this.categoryPage = new CategoryPageModel(this.driver);
